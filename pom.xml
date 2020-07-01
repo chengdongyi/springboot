@@ -22,10 +22,11 @@
     </properties>
 
     <modules>
-        <module>springboot-example</module>
+<!--        <module>springboot-example</module>
         <module>springboot-database</module>
-        <module>springboot-redis</module>
+        <module>springboot-redis</module>-->
         <module>springboot-security</module>
+        <module>springboot-security-oauth2</module>
 
     </modules>
 
