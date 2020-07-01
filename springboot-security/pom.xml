@@ -11,7 +11,7 @@
 
     <artifactId>springboot-security</artifactId>
     <name>springboot-security</name>
-    <description>Spring Boot Security 安全框架</description>
+    <description>Spring Security 安全框架</description>
     <packaging>jar</packaging>
 
     <dependencies>
