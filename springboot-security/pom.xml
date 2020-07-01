@@ -40,6 +40,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+        <!-- thymeleaf整合security -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>3.0.4.RELEASE</version>
+        </dependency>
 
         <!-- thymeleaf 模板 -->
         <dependency>
@@ -51,6 +57,8 @@
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-java8time</artifactId>
         </dependency>
+
+        <!-- 数据库 -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
