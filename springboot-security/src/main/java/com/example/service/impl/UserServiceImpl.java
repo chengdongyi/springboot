@@ -11,12 +11,14 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Resource
-    private UserDao userDao;
+//    @Resource
+//    private UserDao userDao;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        return userDao.findByName(userName);
+//        return userDao.findByName(userName);
+
+        return null;
     }
 
 }

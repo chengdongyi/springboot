@@ -15,11 +15,11 @@ import javax.annotation.Resource;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled = true) // 开启方法级的动态授权
+//@EnableGlobalMethodSecurity(securedEnabled = true) // 开启方法级的动态授权
 public class Securityconfig extends WebSecurityConfigurerAdapter {
 
-    @Resource
-    private UserService userService;
+//    @Resource
+//    private UserService userService;
 
     //授权
     @Override
@@ -31,7 +31,7 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level1/**").hasRole("vip1") // hasAnyRole() 任何角色都可以访问
                 .antMatchers("/level2/**").hasRole("vip2")
                 .antMatchers("/level3/**").hasRole("vip3");
-
+//        http.securityContext("");
         //没有权限默认会到登录页,需要开启登录的页面
           /*
             没有授权会自动跳转到登录页面        http://localhost:8080/login
@@ -60,7 +60,8 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
 
 
 //        http.formLogin();
-        http.formLogin().loginPage("/toLogin");
+        http.formLogin().loginPage("/toLogin").loginProcessingUrl("/user/login")
+                .successForwardUrl("/index").permitAll();
         //注销 开启了注销功能，跳到首页
 
         //防止网站工具 ：get、post
@@ -76,14 +77,14 @@ public class Securityconfig extends WebSecurityConfigurerAdapter {
     @Override
     protected  void configure(AuthenticationManagerBuilder auth)throws  Exception{
         //这些数据正常应该从数据库中读
-//        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
-//                .withUser("user").password(new BCryptPasswordEncoder().encode("123456")).roles("vip2","vip3")
-//                .and()
-//                .withUser("root").password(new BCryptPasswordEncoder().encode("123456")).roles("vip1","vip2","vip3")
-//                .and()
-//                .withUser("guest").password(new BCryptPasswordEncoder().encode("123456")).roles("vip1");
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+                .withUser("user").password(new BCryptPasswordEncoder().encode("123456")).roles("vip2","vip3")
+                .and()
+                .withUser("root").password(new BCryptPasswordEncoder().encode("123456")).roles("vip1","vip2","vip3")
+                .and()
+                .withUser("guest").password(new BCryptPasswordEncoder().encode("123456")).roles("vip1");
 
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+//        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
 
     @Bean

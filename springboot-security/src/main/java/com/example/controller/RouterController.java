@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,10 +13,16 @@ public class RouterController {
         return  "index";
     }
 
-    @RequestMapping("toLogin")
+    @RequestMapping("/toLogin")
     public String toLogin(){
         return  "views/login";
     }
+
+//    @RequestMapping("/user/login")
+//    public String login(HttpRequest httpRequest, String username , String password){
+//        System.out.println("username:" + username + ", password:" + password);
+//        return  "index";
+//    }
 
     @RequestMapping("/level1/{id}")
     public  String level1(@PathVariable("id") int id){
