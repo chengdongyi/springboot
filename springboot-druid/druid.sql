@@ -18,15 +18,15 @@ CREATE TABLE `role` (
   `roledesc` varchar(256) NOT NULL COMMENT '角色描述'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ALTER TABLE `role` ADD INDEX index_name (`id`);
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('1', 'user', '普通用户');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('1', 'vip', '普通会员');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('1', 'svip', '黄金会员');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('2', 'user', '普通用户');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('2', 'vip', '普通会员');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('2', 'svip', '黄金会员');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('3', 'user', '普通用户');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('3', 'vip', '普通会员');
-INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('4', 'user', '普通用户');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('1', 'ROLE_user', '普通用户');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('1', 'ROLE_vip', '普通会员');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('1', 'ROLE_svip', '黄金会员');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('2', 'ROLE_user', '普通用户');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('2', 'ROLE_vip', '普通会员');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('2', 'ROLE_svip', '黄金会员');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('3', 'ROLE_user', '普通用户');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('3', 'ROLE_vip', '普通会员');
+INSERT INTO `role` (`id`, `rolename`, `roledesc`) VALUES ('4', 'ROLE_user', '普通用户');
 COMMIT;
 
 CREATE TABLE `user_info` (
