@@ -31,8 +31,7 @@
                 <!--登录了：显示注销，用户名-->
                 <div sec:authorize="isAuthenticated()">
                     <a class="item">
-                        用户名：<span sec:authentication="name"></span>  |
-                        角  色：<span sec:authentication="principal.authorities"></span>
+                        用户名：<span sec:authentication="name"></span>
                     </a>
                 </div>
                 <div sec:authorize="isAuthenticated()">
@@ -45,49 +44,65 @@
     </div>
 
     <div class="ui segment" style="text-align: center">
-        <h3>Spring Boot Security 安全框架</h3>
+        <h3> 帝豪会所 </h3>
     </div>
 
     <div>
         <br>
         <div class="ui three column stackable grid">
-            <div class="column" sec:authorize="hasRole('vip1')">
+
+            <div class="column">
                 <div class="ui raised segment">
                     <div class="ui">
                         <div class="content">
-                            <h5 class="content">Level 1</h5>
+                            <h5 class="content">游客</h5>
                             <hr>
-                            <div><a th:href="@{/level1/1}"><i class="bullhorn icon"></i> Level-1-1</a></div>
-                            <div><a th:href="@{/level1/2}"><i class="bullhorn icon"></i> Level-1-2</a></div>
-                            <div><a th:href="@{/level1/3}"><i class="bullhorn icon"></i> Level-1-3</a></div>
+                            <div><a th:href="@{/tourist/1}"><i class="bullhorn icon"></i> 提前预约 </a></div>
+                            <div><a th:href="@{/tourist/2}"><i class="bullhorn icon"></i> 限时8小时 </a></div>
+                            <div><a th:href="@{/tourist/3}"><i class="bullhorn icon"></i> 免费茶水 </a></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="column" sec:authorize="hasRole('vip2')">
+            <div class="column" sec:authorize="hasRole('user')">
                 <div class="ui raised segment">
                     <div class="ui">
                         <div class="content">
-                            <h5 class="content">Level 2</h5>
+                            <h5 class="content">普通用户</h5>
                             <hr>
-                            <div><a th:href="@{/level2/1}"><i class="bullhorn icon"></i> Level-2-1</a></div>
-                            <div><a th:href="@{/level2/2}"><i class="bullhorn icon"></i> Level-2-2</a></div>
-                            <div><a th:href="@{/level2/3}"><i class="bullhorn icon"></i> Level-2-3</a></div>
+                            <div><a th:href="@{/user/1}"><i class="bullhorn icon"></i> 通普包间 </a></div>
+                            <div><a th:href="@{/user/2}"><i class="bullhorn icon"></i> 高速网络 </a></div>
+                            <div><a th:href="@{/user/3}"><i class="bullhorn icon"></i> 免费停车 </a></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="column" sec:authorize="hasRole('vip2')">
+
+            <div class="column" sec:authorize="hasRole('vip')">
                 <div class="ui raised segment">
                     <div class="ui">
                         <div class="content">
-                            <h5 class="content">Level 3</h5>
+                            <h5 class="content">普通会员</h5>
                             <hr>
-                            <div><a th:href="@{/level3/1}"><i class="bullhorn icon"></i> Level-3-1</a></div>
-                            <div><a th:href="@{/level3/2}"><i class="bullhorn icon"></i> Level-3-2</a></div>
-                            <div><a th:href="@{/level3/3}"><i class="bullhorn icon"></i> Level-3-3</a></div>
+                            <div><a th:href="@{/vip/1}"><i class="bullhorn icon"></i> 贵宾包间 </a></div>
+                            <div><a th:href="@{/vip/2}"><i class="bullhorn icon"></i> 豪华套房 </a></div>
+                            <div><a th:href="@{/vip/3}"><i class="bullhorn icon"></i> 健身中心 </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column" sec:authorize="hasRole('svip')">
+                <div class="ui raised segment">
+                    <div class="ui">
+                        <div class="content">
+                            <h5 class="content">黄金会员</h5>
+                            <hr>
+                            <div><a th:href="@{/svip/1}"><i class="bullhorn icon"></i> 钻石包间 </a></div>
+                            <div><a th:href="@{/svip/2}"><i class="bullhorn icon"></i> 总统套房 </a></div>
+                            <div><a th:href="@{/svip/3}"><i class="bullhorn icon"></i> 露天泳池 </a></div>
                         </div>
                     </div>
                 </div>

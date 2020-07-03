@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.http.HttpRequest;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,25 +19,27 @@ public class RouterController {
         return  "views/login";
     }
 
-//    @RequestMapping("/user/login")
-//    public String login(HttpRequest httpRequest, String username , String password){
-//        System.out.println("username:" + username + ", password:" + password);
-//        return  "index";
-//    }
-
-    @RequestMapping("/level1/{id}")
-    public  String level1(@PathVariable("id") int id){
-        return "views/level1/"+id;
+    @RequestMapping("/tourist/{id}")
+    public  String tourist(@PathVariable("id") int id){
+        return "views/tourist/"+id;
     }
 
-    @RequestMapping("/level2/{id}")
-    public  String level2(@PathVariable("id") int id){
-        return "views/level2/"+id;
+    @Secured("ROLE_user")
+    @RequestMapping("/user/{id}")
+    public  String user(@PathVariable("id") int id){
+        return "views/user/"+id;
     }
 
-    @RequestMapping("/level3/{id}")
-    public  String level3(@PathVariable("id") int id){
-        return "views/level3/"+id;
+    @Secured("ROLE_vip")
+    @RequestMapping("/vip/{id}")
+    public  String vip(@PathVariable("id") int id){
+        return "views/vip/"+id;
+    }
+
+    @Secured("ROLE_svip")
+    @RequestMapping("/svip/{id}")
+    public  String svip(@PathVariable("id") int id){
+        return "views/svip/"+id;
     }
 
 }
