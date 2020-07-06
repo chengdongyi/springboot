@@ -17,9 +17,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       jobs:
-        url: jdbc:mysql://10.12.8.196:3306/rwjobsdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
-        username: rwjobs
-        password: 2014$aspire
+        url: jdbc:mysql://127.0.0.1:3306/jobs?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
+        username: jobs
+        password: 123456
         driver-class-name: com.mysql.cj.jdbc.Driver
 
         #Spring Boot 默认是不注入这些属性值的，需要自己绑定
@@ -44,9 +44,9 @@ spring:
         useGlobalDataSourceStat: true
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
       lvip:
-        url: jdbc:mysql://10.12.8.196:3306/lvip_dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
-        username: lvipdev
-        password: lvipdev
+        url: jdbc:mysql://127.0.0.1:3306/lvip?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
+        username: lvip
+        password: 123456
         driver-class-name: com.mysql.cj.jdbc.Driver
         type: com.alibaba.druid.pool.DruidDataSource
 
