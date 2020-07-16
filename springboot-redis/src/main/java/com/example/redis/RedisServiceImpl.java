@@ -1,8 +1,6 @@
 package com.example.redis;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -13,8 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 @Service("redisService")
 public class RedisServiceImpl implements RedisService {
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
@@ -91,4 +87,5 @@ public class RedisServiceImpl implements RedisService {
         redisTemplate.opsForValue().set(key, data, timeout, timeUnit);
 
     }
+
 }

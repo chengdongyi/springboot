@@ -103,7 +103,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.example.SpringbootRedisApplication</mainClass>
+                    <mainClass>com.example.RedisApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
