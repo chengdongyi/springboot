@@ -1,0 +1,16 @@
+
+# Spring Boot 通过 url 地址访问项目内部与外部文件
+# 访问地址 ip:port/filename
+spring:
+  resources:
+    # 内部文件
+    # static-locations: classpath:/externalFil
+    # 外部文件
+    static-locations: file:D://test
+
+  servlet:
+    multipart:
+      # 上传单个文件大小
+      max-file-size: 10MB
+      # 上传单个文件大小
+      max-request-size: 10MB
