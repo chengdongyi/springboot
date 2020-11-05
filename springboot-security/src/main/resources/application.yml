@@ -12,9 +12,9 @@ spring:
     cache: false
 
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
-    username: test
-    password: 123456
+    url: jdbc:mysql://10.12.8.196:3306/rwjobsdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2b8&allowMultiQueries=true
+    username: rwjobs
+    password: 2014$aspire
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:

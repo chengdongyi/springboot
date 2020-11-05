@@ -29,6 +29,7 @@
         <module>springboot-security</module>
         <module>springboot-security-oauth2</module>
         <module>springboot-druid</module>
+        <module>springboot-japidocs</module>
 
     </modules>
 
