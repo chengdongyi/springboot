@@ -6,6 +6,7 @@ buildscript {
         springbootVersion = '2.3.9.RELEASE'
         mysqlVersion = '8.0.13'
         mybatisPlusVersion = '3.4.1'
+        fastjsonVersion = '2.0.28'
     }
 
     // 设置仓库
@@ -75,6 +76,7 @@ subprojects {
         dependencies {
             dependency "org.projectlombok:lombok:${lombokVersion}"
             dependency "mysql:mysql-connector-java:${mysqlVersion}"
+            dependency "com.alibaba:fastjson:${fastjsonVersion}"
             dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
         }
         imports {
