@@ -1,0 +1,84 @@
+// 构建gradle脚本自身需要的资源，可以声明的资源包括依赖项、第三方插件、maven仓库地址等
+buildscript {
+    ext {
+        // 统一版本管理
+        lombokVersion = '1.18.20'
+        springbootVersion = '2.3.9.RELEASE'
+        mysqlVersion = '8.0.13'
+        mybatisPlusVersion = '3.4.1'
+    }
+
+    // 设置仓库
+    repositories {
+        // 从前到后顺序执行，找不到就往后找
+        mavenLocal() // 本地仓库
+        maven { url 'https://maven.aliyun.com/repository/public'} // 镜像仓库
+        mavenCentral() //官方仓库
+    }
+
+    dependencies {
+        // spring-boot-gradle插件，方便版本管理
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springbootVersion}")
+    }
+
+}
+
+// 全局配置，包括root和其子项目
+allprojects {
+    group 'com.example'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    // 指定编译时JDK版本
+    sourceCompatibility = JavaVersion.VERSION_11
+    // 指定运行时JDK版本
+    targetCompatibility = JavaVersion.VERSION_11
+    // 业务编码字符集
+    compileJava.options.encoding = 'UTF-8'
+    // 测试编码字符集
+    compileTestJava.options.encoding = 'UTF-8'
+    // 编译Java文件时字符集
+    tasks.withType(JavaCompiler) {
+        options.encoding = 'UTF-8'
+    }
+    // 编译Java文档时字符集
+    tasks.withType(Javadoc) {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        // 从前到后顺序执行，找不到就往后找
+        mavenLocal() // 本地仓库
+        maven { url 'https://maven.aliyun.com/repository/public'} // 镜像仓库
+        mavenCentral() //官方仓库
+    }
+
+}
+
+// 配置所有子项目
+subprojects {
+    // 版本管理插件
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+
+    dependencyManagement {
+        // 版本统一管理
+        dependencies {
+            dependency "org.projectlombok:lombok:${lombokVersion}"
+            dependency "mysql:mysql-connector-java:${mysqlVersion}"
+            dependency "com.baomidou:mybatis-plus-boot-starter:${mybatisPlusVersion}"
+        }
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springbootVersion}"
+        }
+    }
+}
